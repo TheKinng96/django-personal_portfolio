@@ -1,0 +1,15 @@
+{% extends 'portfolio/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<img src="{{ picture.image.url }}" class="center">
+
+<h1 class="text-center mt-5" id="blogdetailtitle">{{ picture.title }}</h1>
+
+<h5 class="text-center text-muted mb-5">{{ picture.date|date:'F jS Y' }}</h5>
+
+{{ blog.description|safe }}
+
+{% endblock %}

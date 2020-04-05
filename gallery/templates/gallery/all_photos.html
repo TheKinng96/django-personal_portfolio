@@ -1,0 +1,35 @@
+{% extends 'portfolio/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<h1 id="blogtitle" class="font-weight-bold text-center">Gallery</h1>
+
+<h3 class="text-center mb-5"> {{ photos.count }} upload{{ photos.count|pluralize }}</h3>
+<hr>
+
+{% for picture in pictures %}
+<div class="col-lg-4 col-md-6">
+
+  {% if picture.url %}
+  <a href="{{ picture.url }}">
+    <img src="{{ picture.image.url }}" class="img-fluid mb-2">
+  </a>
+  {% else %}
+
+  <img src="{{ picture.image.url }}" class="img-fluid mb-2">
+  {% endif %}
+{% endfor %}
+
+    <div class="small-12 column">
+        <div class="cta text-center">
+          <div class="footer">
+            <a class="btn btn-outline-dark" href=" {% url 'home' %}">Back</a>
+          </div>
+        </div>
+    </div>
+    <br>
+    <br>
+
+{% endblock %}
